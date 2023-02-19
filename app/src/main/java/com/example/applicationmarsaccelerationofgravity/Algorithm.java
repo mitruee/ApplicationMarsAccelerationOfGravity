@@ -17,15 +17,13 @@ public class Algorithm {
             String inputMod = input.replace(",", ".");
 
             float inputFloat = Float.parseFloat(inputMod);
-
             
             return (long) (inputFloat * MASS_FOR_ONE_KG);
 
         } else {
             
             float inputFloat = Float.parseFloat(input);
-
-            
+ 
             return (long) (inputFloat * MASS_FOR_ONE_KG);
         }
     }
