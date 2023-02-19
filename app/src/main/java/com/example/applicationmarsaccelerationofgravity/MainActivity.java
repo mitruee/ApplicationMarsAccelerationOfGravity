@@ -10,41 +10,32 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    // создание полей для вывода на экран нужных значений
-    private EditText massIn; // поле ввода размера массы
-    private Button button; // кнопка обработки информации
-    private TextView massOut; // поле вывода результирующей информации
+    private EditText massIn;
+    private Button button;
+    private TextView massOut;
 
-    // создание поля для алгоритма
-    private String mass = ""; // переменная для записи входного значения
+    private String mass = "";
 
-    // создадим объект нашего алгоритма, чтобы мы могли получить доступ к его методам
     Algorithm algorithm = new Algorithm();
 
-    // вывод на экран полученных значений
     @Override
-    protected void onCreate(Bundle savedInstanceState) { // создание жизненного цикла активности
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main); // присваивание жизненному циклу активити представления activity_main
+        setContentView(R.layout.activity_main);
 
-        // присваивание переменным активити элементов представления activity_main
-        massIn = findViewById(R.id.massIn); // поле ввода
-        button = findViewById(R.id.button); // кнопка обработки
-        massOut = findViewById(R.id.massOut); // поле вывода
+        massIn = findViewById(R.id.massIn);
+        button = findViewById(R.id.button);
+        massOut = findViewById(R.id.massOut);
 
-        // выполнение действий при нажании кнопки
-        button.setOnClickListener(listener); // обработка нажатия кнопки
+        button.setOnClickListener(listener);
     }
 
-    // объект обработки нажатия кнопки
     private View.OnClickListener listener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
 
-            // считывание введённого значения
             mass = massIn.getText().toString();
 
-            // вывод полученной информации на экран
             massOut.setText("Для вывода на орбиту Марса потребуется " + algorithm.absoluteMassCalculation(mass) + " килограммов топлива");
         }
     };
